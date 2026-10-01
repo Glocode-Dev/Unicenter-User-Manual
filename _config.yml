@@ -1,0 +1,179 @@
+# Unicenter POS User Manual - Jekyll Configuration
+# ================================================
+
+# Site metadata
+title: Unicenter POS User Manual
+tagline: Complete guide to Unicenter Point of Sale software
+description: A comprehensive markdown website serving the Unicenter POS software user manual with responsive design and intuitive navigation.
+url: https://glocode-dev.github.io
+baseurl: /Unicenter-User-Manual
+language: en
+timezone: UTC
+
+# Author & Organization
+author:
+  name: Glocode Development
+  email: support@glocode.dev
+  twitter: glocode_dev
+  github: Glocode-Dev
+
+organization:
+  name: Glocode
+  logo: /assets/images/logo.png
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: /:categories/:title/
+
+# Theme configuration
+theme: minima
+remote_theme: jekyll/minima
+
+# Minima theme customization
+minima:
+  date_format: "%b %-d, %Y"
+  social_links:
+    - { platform: github, user_url: "https://github.com/Glocode-Dev" }
+    - { platform: twitter, user_url: "https://twitter.com/glocode_dev" }
+
+# Collections
+collections:
+  guides:
+    output: true
+    permalink: /guides/:name/
+  features:
+    output: true
+    permalink: /features/:name/
+  faq:
+    output: true
+    permalink: /faq/:name/
+
+# Navigation menu
+header_pages:
+  - index.markdown
+  - getting-started.markdown
+  - guides.markdown
+  - features.markdown
+  - faq.markdown
+  - support.markdown
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-paginate-v2
+
+# Pagination
+pagination:
+  enabled: true
+  per_page: 12
+  permalink: /page/:num/
+  title: ":title - Page :num"
+  sort_field: date
+  sort_reverse: true
+
+# Feed settings
+feed:
+  posts_limit: 10
+  excerpt_only: true
+
+# SEO settings
+social:
+  name: Unicenter POS User Manual
+  links:
+    - https://github.com/Glocode-Dev/Unicenter-User-Manual
+    - https://twitter.com/glocode_dev
+
+# Search settings
+search_enabled: true
+search_tokenizer_separator: /[\s/]+/
+
+# Analytics (optional - uncomment to enable)
+# google_analytics: UA-XXXXXXXXX-X
+
+# Content settings
+excerpt_separator: "<!--more-->"
+
+# Output settings
+safe: false
+include:
+  - .htaccess
+  - _pages
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - .sass-cache/
+  - .jekyll-cache/
+  - .git/
+  - .github/
+
+# Asset settings
+assets:
+  sources:
+    - _assets/images
+    - _assets/css
+    - _assets/js
+  destination: /assets
+  compression: true
+  image_optim:
+    pngcrush: {}
+
+# Responsive image configuration
+responsive_image:
+  template: _includes/responsive-image.html
+  sizes:
+    - 480
+    - 768
+    - 1024
+    - 1280
+    - 1600
+  strip: false
+  quality: 85
+  webp:
+    quality: 85
+
+# Markdown configuration
+kramdown:
+  input: GFM
+  hard_wrap: false
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    block:
+      line_numbers: true
+      start_line: 1
+
+# Sass settings
+sass:
+  style: compressed
+  load_paths:
+    - _sass
+    - node_modules
+
+# Grid system configuration (8-column responsive grid)
+grid:
+  columns: 8
+  gutter: 24px
+  breakpoints:
+    xs: 320px   # Mobile
+    sm: 576px   # Small devices
+    md: 768px   # Tablets
+    lg: 992px   # Desktops
+    xl: 1200px  # Large desktops
+    xxl: 1400px # Extra large screens
+  
+  # Column classes for 8-grid system
+  # col-md-1 through col-md-8
+  # col-lg-1 through col-lg-8
+  # etc.
+
+# Development settings
+livereload: true
+show_drafts: false
+future: false
