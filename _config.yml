@@ -28,7 +28,8 @@ permalink: /:categories/:title/
 
 # Theme configuration
 theme: minima
-remote_theme: jekyll/minima
+# removed remote_theme to avoid duplicate theme sources which can cause Sass import order issues:
+# remote_theme: jekyll/minima
 
 # Minima theme customization
 minima:
@@ -115,11 +116,12 @@ exclude:
   - .github/
 
 # Asset settings
+# Standardize to 'assets' (no leading underscore) so the build path references match
 assets:
   sources:
-    - _assets/images
-    - _assets/css
-    - _assets/js
+    - assets/images
+    - assets/css
+    - assets/js
   destination: /assets
   compression: true
   image_optim:
@@ -150,6 +152,7 @@ kramdown:
       start_line: 1
 
 # Sass settings
+# Keep _sass and node_modules in load_paths so partials and theme files are resolvable.
 sass:
   style: compressed
   load_paths:
@@ -167,11 +170,6 @@ grid:
     lg: 992px   # Desktops
     xl: 1200px  # Large desktops
     xxl: 1400px # Extra large screens
-  
-  # Column classes for 8-grid system
-  # col-md-1 through col-md-8
-  # col-lg-1 through col-lg-8
-  # etc.
 
 # Development settings
 livereload: true
